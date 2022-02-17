@@ -1,0 +1,79 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">
+    <title>Employee Records</title>
+    {% load static %}
+    <style>
+    table,th,td{
+                border:2px solid gray;
+                border-collapse:collapse;
+                }
+    th,td{
+            padding:10px
+            }
+    td{
+        text-align:left;
+        font-size:20px
+        }
+    th{
+        background:black;
+        color:white;
+        font-size:25px
+        }
+    a{
+        font-size:30px
+    }
+    </style>
+</head>  
+<body>  
+<header style = "background-color:black; height:100px; width:100% ">
+    <img src="{% static '\logo.png' %}" height="80px" width="80px" alt="logo" style="padding:10px 10px 10px 10px">
+    <h1 style = "font-size:30px; color:white; text-align:center; display:inline-block; vertical-align: top; padding:10px 100px">
+    JAGADISH CHANDRA BOSE RESEARCH ORGANISATION
+    </h1>
+</header>
+
+<h2 style = "font-size:35px; color:black;text-align:center; padding:20px">
+Employee's Detail
+</h2>
+
+<table style = "width:100%; text-align:center ">
+    <thead >  
+        <tr >  
+            <th>Employee ID</th>  
+            <th>Employee Name</th>  
+            <th>Employee Email</th>  
+            <th>Employee Contact</th> 
+            <th>Actions</th>   
+        </tr>  
+    </thead>
+    <tbody>
+    {% for employee in employees %}  
+    <tr>  
+        <td>{{ employee.eid }}</td>  
+        <td>{{ employee.ename }}</td>  
+        <td>{{ employee.email }}</td>  
+        <td>{{ employee.econtact }}</td>
+        <td><a href = "/edit/{{ employee.id }}">Edit</a>
+            /
+            <a href = "/delete/{{ employee.id }}">Delete</a></td>
+    </tr>     
+    {% endfor %} 
+    </tbody>
+</table>
+<br>  
+<br>
+<center><a href="/emp">Add New Record</a></center>
+</body>  
+</html>  
+
+
+
+
+
+
+
+
+
+

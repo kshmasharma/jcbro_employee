@@ -1,0 +1,54 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">
+    {% load static %}   
+    <style>
+    td{
+        text-align:left;
+        font-size:25px;
+        }
+    .allcenter{
+                text-align:center;
+                }
+    .inputtext{
+                padding-left:20px;
+                }
+    </style>
+<title>JCBRO Empoyees Record</title>
+</head>  
+<body>
+<header style = "background-color:black; height:100px; width:100% ">
+    <img src="{% static '\logo.png' %}" height="80px" width="80px" alt="logo" style="padding:10px 10px 10px 10px">
+    <h1 style = "font-size:30px; color:white; text-align:center; display:inline-block; vertical-align: top; padding:10px 100px">
+    JAGADISH CHANDRA BOSE RESEARCH ORGANISATION
+    </h1>
+</header>
+<h2 class = "allcenter" style = "font-size:40px">Confirm Delete Record</h2>
+<form method = "POST" action = "/delete/{{employee.id}}" class = "allcenter">
+    {% csrf_token %}
+    <table style = "margin-left:auto;margin-right:auto;">
+    <tbody>
+        <tr>
+            <td><label>Employee id :</label></td>
+            <td class = "inputtext">{{employee.eid}}</td>
+        </tr>
+        <tr>
+            <td><label>Employee Name :</label></td>
+            <td class = "inputtext">{{employee.ename}}</td>
+        </tr>
+        <tr>
+            <td><label>Employee Mail :</label></td>
+            <td class = "inputtext">{{employee.email}}</td>
+        </tr>
+        <tr>
+            <td><label>Employee Contact :</label></td>
+            <td class = "inputtext">{{employee.econtact}}</td>
+    </tbody>
+    </table>
+    </br>
+    
+    <button type = "submit" value = "submit" style = "font-size:25px">Delete</button>
+</form>
+</body>  
+</html> 
